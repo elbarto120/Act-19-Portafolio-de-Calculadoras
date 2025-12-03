@@ -3,24 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>División de Polinomios</title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+    <title>División sintética</title>
+        <link rel="stylesheet" href="../../css/style.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+
 </head>
 <body>
-    <a href="../../index.html" class="boton-regresar">⬅ Volver al Menú</a>
+    <body>
+        <a href="../../index.html" class="boton-regresar">⬅ Volver al Menú</a>
     <div class="container">
-    <h1>División de Polinomios</h1>
-    <p class="subtitle">Soporta división entre cualquier polinomio con coeficientes reales y complejas</p>
-    <p><h5>Jesus Fernando Castro Hernandez || 1°A || Mtro: Jorge Javier Pedrozo Romero || Algebra || Instituto Tecnologico De Software</h5></p>
+    <h1>División Sintética de Polinomios</h1>
+    <p class="subtitle">Soporta coeficientes y raíces reales y complejas</p><p><h5>Gael Magaña || 1°A || Mtro: Jorge Javier Pedrozo Romero || Algebra || Instituto Tecnologico De Software</h5></p>
 
     <div class="input-section">
-        <label for="polinomio">Dividendo (Polinomio a dividir):</label>
-        <input type="text" id="polinomio" placeholder="Ejemplo: x^2 + 4">
-        <p class="help-text">Ingresa el polinomio dividendo con formato algebraico</p>
+        <label for="polinomio">Polinomio:</label>
+        <input type="text" id="polinomio" placeholder="Ejemplo: 5x^3 + 3x^2 + 2x + 1 o x^2 - 6x + 11">
+        <p class="help-text">Ingresa el polinomio con formato algebraico</p>
         <div class="example">
             <strong>Ejemplos:</strong><br>
-            • x^2 + 4<br>
             • 5x^3 + 3x^2 + 2x + 1<br>
             • x^3 - 6x^2 + 11x - 6<br>
             • 2x^2 + (3+2i)x + 1<br>
@@ -29,19 +30,15 @@
     </div>
 
     <div class="input-section">
-        <label for="raiz">Divisor (Polinomio divisor):</label>
-        <input type="text" id="raiz" placeholder="Ejemplo: x + 1">
-        <p class="help-text">Ingresa el polinomio divisor (puede ser de cualquier grado)</p>
+        <label for="raiz">Raíz (divisor):</label>
+        <input type="text" id="raiz" placeholder="Ejemplo: 2 o 1+i">
+        <p class="help-text">Ingresa el valor de la raíz (puede ser complejo)</p>
         <div class="example">
-            <strong>Ejemplos:</strong><br>
-            • x + 1<br>
-            • x^2 + 1<br>
-            • 2x - 3<br>
-            • x^2 - 4
+            <strong>Ejemplos:</strong> 2, -3, 1+i, 2-3i
         </div>
     </div>
 
-    <button onclick="calcularDivision()">Calcular División</button>
+    <button onclick="calcularDivision()">Calcular División Sintética</button>
 
     <div id="resultado" class="result-section"></div>
 </div>
