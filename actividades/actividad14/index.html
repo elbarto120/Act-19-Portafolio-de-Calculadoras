@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Simbólica Ecuaciones Lineales</title>
+        <link rel="stylesheet" href="../../css/style.css">
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+
+</head>
+<body>
+    <a href="../../index.html" class="boton-regresar">⬅ Volver al Menú</a>
+    <div class="container">
+        <h1>Calculadora Simbólica de Ecuaciones</h1><p><h5>Jesus Fernando Castro Hernandez || 1°A || Mtro: Jorge Javier Pedrozo Romero || Algebra || Instituto Tecnologico De Software</h5></p>
+
+        <section class="solver-section">
+            <h2>1. Solución de Ecuaciones de una Variable (x)</h2>
+            <p>Introduce la ecuación lineal para despejar <strong>x</strong> (ej: 2x + 3 = x + 8):</p>
+            <input type="text" id="ecuacion" value="2x + 3 = x + 8">
+            <button onclick="resolverEcuacionParseada()">Resolver</button>
+            <div id="resDespejeParseado" class="result-box"></div>
+            <div id="mensajeError" class="error-message"></div>
+        </section>
+
+        <hr>
+
+        <section class="solver-section">
+            <h2>2. Despeje Simbólico de Fórmulas</h2>
+            <p>Introduce cualquier fórmula matemática (ej: C = 5(F - 32)/9):</p>
+            
+            <div class="formula-input-container">
+                <label for="formulaLiteral">Fórmula:</label>
+                <input type="text" id="formulaLiteral" value="C = 5(F - 32)/9" placeholder="Ej: T = F*c/r">
+            </div>
+            
+            <button onclick="procesarFormulaLiteral()">Generar Despejes Simbólicos</button>
+
+            <div id="resFormulaLiteral" class="result-box"></div>
+            <div id="mensajeErrorFormula" class="error-message"></div>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,835 @@
+/* =========================================
+   1. VARIABLES GLOBALES (TEMA UNIFICADO)
+   Esto garantiza la "Coherencia Visual"
+   ========================================= */
+:root {
+    --bg-color: #121212;          /* Fondo oscuro principal */
+    --card-bg: #1e1e1e;           /* Fondo de tarjetas/contenedores */
+    --primary: #ff6a00;           /* Color principal (Naranja) */
+    --primary-hover: #e55d08;     /* Naranja más oscuro para hover */
+    --text-main: #ffffff;         /* Texto principal */
+    --text-muted: #b0b0b0;        /* Texto secundario */
+    --border: #333333;            /* Bordes sutiles */
+    --success: #10b981;           /* Verde para éxito */
+    --danger: #ef4444;            /* Rojo para errores/borrar */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-code: 'Courier New', monospace;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================================
+   2. RESET Y ESTILOS BASE
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Enlaces generales */
+a { text-decoration: none; color: inherit; }
+
+/* =========================================
+   3. ELEMENTOS DE NAVEGACIÓN (Regresar)
+   ========================================= */
+.barra-navegacion {
+    margin-bottom: 2rem;
+}
+
+.boton-regresar {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--card-bg);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.boton-regresar:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: translateX(-5px);
+}
+
+/* =========================================
+   4. CONTENEDORES Y TARJETAS (Global)
+   ========================================= */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    animation: fadeIn 0.8s ease-out;
+}
+
+h1 {
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+h2, h3 { color: var(--text-main); margin-bottom: 15px; }
+p { color: var(--text-muted); margin-bottom: 15px; }
+
+/* =========================================
+   5. INPUTS Y BOTONES UNIFICADOS
+   Todos los botones ahora se ven iguales
+   ========================================= */
+input[type="text"], 
+input[type="number"], 
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    background-color: #2a2a2a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: white;
+    font-family: var(--font-main);
+    margin-bottom: 15px;
+    transition: 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 8px rgba(255, 106, 0, 0.2);
+}
+
+button {
+    cursor: pointer;
+    padding: 12px 24px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 106, 0, 0.3);
+}
+
+/* Botones secundarios (Limpiar/Borrar) */
+button.clear-btn, 
+button.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+
+button.clear-btn:hover, 
+button.btn-secondary:hover {
+    background-color: var(--danger);
+    color: white;
+}
+
+/* =========================================
+   6. ESTILOS ESPECÍFICOS: ACTIVIDAD 02 (Recta Numérica)
+   Adaptado al tema oscuro
+   ========================================= */
+.number-line-container {
+    border: 1px solid var(--border);
+    padding: 20px;
+    background: #252525;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.number-line {
+    position: relative;
+    height: 80px;
+    background: white; /* La recta necesita ser clara para contraste */
+    border-radius: 4px;
+    margin: 30px 0;
+}
+
+.line {
+    position: absolute; top: 50%; left: 5%; right: 5%;
+    height: 4px; background: black;
+}
+
+.number-point {
+    position: absolute; width: 16px; height: 16px;
+    top: 50%; transform: translate(-50%, -50%);
+    border-radius: 50%; border: 2px solid white;
+    z-index: 10; cursor: pointer;
+}
+/* Colores de puntos específicos */
+.number-point.naturals { background: var(--primary); }
+.number-point.integers { background: #3b82f6; }
+.number-point.rationals { background: var(--success); }
+.number-point.irrationals { background: #eab308; }
+
+.controls, .preset-section {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.preset-btn {
+    background: #333;
+    border: 1px solid #555;
+    color: white;
+    margin: 5px;
+    padding: 8px 12px;
+}
+
+/* =========================================
+   7. ESTILOS ESPECÍFICOS: ACTIVIDAD 04 (Matrices/Vectores)
+   ========================================= */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.result {
+    background: #000;
+    font-family: var(--font-code);
+    padding: 20px;
+    border-left: 4px solid var(--primary);
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+/* =========================================
+   8. ESTILOS ESPECÍFICOS: ACTIVIDAD 06 (Converter Grid)
+   ========================================= */
+.converter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.column, .info-section, .history-section {
+    background: rgba(255, 255, 255, 0.05); /* Efecto cristal oscuro */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.json-loader-section {
+    border: 1px dashed var(--primary);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   9. ESTILOS ESPECÍFICOS: ACTIVIDAD 12 y 14 (Tablas)
+   ========================================= */
+.process-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    color: black; /* Las tablas suelen leerse mejor en claro */
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.process-table td, .process-table th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.result-box {
+    background: #111;
+    border: 1px solid var(--primary);
+    padding: 15px;
+    color: var(--primary);
+    font-family: var(--font-code);
+    margin-top: 20px;
+}
+
+/* =========================================
+   10. ANIMACIONES GLOBALES
+   ========================================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+/* =========================================
+   11. PARCHES ESPECÍFICOS (AGREGAR AL FINAL)
+   Recuperando estilos de botones y layouts únicos
+   ========================================= */
+
+/* --- ACT 02: Botones de números predefinidos --- */
+.preset-numbers {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.preset-btn {
+    background-color: #333 !important; /* Forzamos color oscuro */
+    color: white !important;
+    border: 1px solid var(--primary) !important;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+.preset-btn:hover {
+    background-color: var(--primary) !important;
+    transform: scale(1.1);
+}
+
+/* --- ACT 06: Botones de evaluación y Layout --- */
+.evaluation-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+/* Botón Verde (Satisfactorio) */
+.satisfactory-btn {
+    background-color: var(--success) !important;
+    color: white;
+    flex: 1;
+}
+/* Botón Amarillo/Naranja (Mejorar) */
+.improve-btn {
+    background-color: #f59e0b !important; /* Ambar */
+    color: white;
+    flex: 1;
+}
+/* Botón Azul (Agregar patrón) */
+.add-pattern-btn {
+    background-color: #3b82f6 !important; /* Azul */
+    color: white;
+    flex: 1;
+}
+/* Layout específico de Act 06 */
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+.info-card {
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #444;
+}
+.metric-number {
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+/* --- ACT 10: Visualización y Pasos --- */
+.steps div {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+    font-family: var(--font-main);
+}
+.expression-result, .numeric-result {
+    background: #252525;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin: 10px 0;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.verification.correcto {
+    background: rgba(16, 185, 129, 0.2); /* Verde transparente */
+    color: #34d399;
+    border: 1px solid var(--success);
+    padding: 10px;
+    border-radius: 6px;
+}
+
+/* --- ACT 12 y 14: Tablas de resultados --- */
+.result-box table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+}
+.result-box th {
+    background-color: var(--primary);
+    color: black;
+    padding: 10px;
+}
+.result-box td {
+    border: 1px solid #444;
+    padding: 8px;
+    color: var(--text-main);
+}
+/* El div de resultado final */
+.final-result, .error {
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+.final-result {
+    background: rgba(255, 106, 0, 0.1);
+    border: 1px solid var(--primary);
+}
+.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+/* =========================================
+   12. REPARACIÓN TOTAL: ACTIVIDAD 02
+   Restauración de layout y componentes interactivos
+   ========================================= */
+
+/* 1. LAYOUT: Poner los paneles lado a lado (Grid) */
+.info-panels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* Estilo de las tarjetas de abajo */
+.classification-panel,
+.points-panel,
+.distance-calculator {
+    background-color: var(--card-bg); /* Fondo oscuro */
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    /* Asegurar que el contenido no se desborde */
+    overflow: hidden;
+}
+
+.classification-panel h3,
+.points-panel h3,
+.distance-calculator h3 {
+    border-bottom: 1px solid var(--primary);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+/* 2. RECTA NUMÉRICA: Arreglar las líneas (ticks) invisibles */
+.number-line {
+    /* Fondo blanco para contraste, como en tu original */
+    background-color: #e0e0e0; 
+    border-radius: 4px;
+    height: 80px;
+    position: relative;
+    margin: 20px 0;
+    border: 1px solid #999;
+}
+
+.line {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background-color: #333;
+    z-index: 1;
+}
+
+/* Las rayitas de los números */
+.tick {
+    position: absolute;
+    width: 2px;
+    height: 14px;
+    background-color: #333; /* Color oscuro para que se vea sobre el gris */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+/* Los números debajo de las rayitas */
+.tick-label {
+    position: absolute;
+    top: 55px; /* Moverlos abajo */
+    transform: translateX(-50%);
+    color: #333; /* Texto oscuro */
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* 3. LEYENDA DE COLORES (Los cuadritos) */
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+/* Asignar los colores del tema */
+.legend-color.naturals { background-color: var(--primary); } /* Naranja */
+.legend-color.integers { background-color: #3b82f6; }       /* Azul */
+.legend-color.rationals { background-color: #10b981; }      /* Verde */
+.legend-color.irrationals { background-color: #eab308; }    /* Amarillo */
+
+
+/* 4. CALCULADORA DE DISTANCIAS (Los botones dropdown perdidos) */
+/* Esto arregla el "Select un punto" que no se veía */
+
+.distance-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+/* Estilo para el contenedor del dropdown personalizado */
+.custom-select {
+    position: relative;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* La caja principal del select */
+.select-selected {
+    background-color: #2a2a2a;
+    color: white;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.select-selected:after {
+    content: '▼';
+    font-size: 0.8rem;
+    margin-left: 10px;
+}
+
+/* La lista desplegable (cuando das click) */
+.select-items {
+    position: absolute;
+    background-color: #333;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none; /* Oculto por defecto */
+}
+
+/* Mostrar cuando está activo (Javascript agrega esta clase) */
+.select-items.select-show {
+    display: block;
+}
+/* Importante para el JS original: */
+.select-items.show { 
+    display: block !important; 
+}
+
+.select-items div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+    color: var(--text-muted);
+}
+
+.select-items div:hover {
+    background-color: var(--primary);
+    color: rgb(197, 93, 93);
+}
+
+/* 5. LISTA DE PUNTOS AGREGADOS */
+.point-item {
+    display: flex;
+    justify-content: space-between;
+    background: #2a2a2a;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border-left: 3px solid var(--primary);
+}
+/* =========================================
+   13. REPARACIÓN TOTAL: ACTIVIDAD 06
+   Restauración del Dashboard y Convertidores
+   ========================================= */
+
+/* 1. SECCIÓN DE CARGA (Base de datos de patrones) */
+.json-loader-section {
+    background-color: #2a2a2a;
+    border: 1px dashed var(--primary);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.json-loader {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* Estilo para los inputs de archivo */
+.file-input-wrapper {
+    margin-right: 10px;
+}
+.file-input-label {
+    background-color: #444;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #666;
+    color: white;
+}
+
+/* 2. GRID PRINCIPAL (Los dos paneles de conversión) */
+.converter-grid {
+    display: grid;
+    /* Esto asegura 2 columnas iguales si hay espacio */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.column {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px; /* Bordes más redondeados como el original */
+    padding: 25px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Sombra más fuerte */
+    display: flex;
+    flex-direction: column;
+}
+
+.column h2 {
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: white;
+}
+
+/* Áreas de texto específicas de la Act 06 */
+.column textarea {
+    background-color: #111;
+    border: 1px solid #444;
+    min-height: 120px;
+    resize: vertical;
+    font-size: 1.1rem;
+}
+
+/* Botones grandes de conversión */
+.convert-button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: var(--primary);
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+/* 3. PANELES DE RESULTADO E INTERACCIÓN */
+.result-output {
+    background-color: #111;
+    border-left: 4px solid var(--primary);
+    padding: 15px;
+    margin: 20px 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    font-family: var(--font-code);
+    color: white;
+}
+
+/* Contenedor de botones de retroalimentación (Verde, Amarillo, Azul) */
+.evaluation-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: auto; /* Empuja los botones al final de la tarjeta */
+}
+
+/* 4. DASHBOARD INFERIOR (Información del Sistema) */
+.info-section {
+    background-color: transparent; /* Quitar fondo extra */
+    border: none;
+    padding: 0;
+}
+
+.info-cards {
+    display: grid;
+    /* Rejilla responsive: crea tantas columnas como quepan */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.info-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.info-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border: none; /* Quitar bordes heredados */
+}
+
+.metric-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary); /* Naranja vibrante */
+    line-height: 1;
+    margin-bottom: 5px;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* 5. HISTORIAL DE CONVERSIONES */
+.history-section {
+    margin-top: 40px;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--border);
+}
+
+.history-list {
+    max-height: 300px;
+    overflow-y: auto;
+    background: #111;
+    padding: 10px;
+    border-radius: 8px;
+}
+/* =========================================
+   14. REPARACIÓN FINAL: MENÚ PRINCIPAL (INDEX)
+   Restauración de la cuadrícula y botones de enlace
+   ========================================= */
+
+/* 1. LA CUADRÍCULA (GRID) */
+/* Esto hace que las tarjetas se pongan una al lado de otra */
+.grid-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 20px 0;
+}
+
+/* 2. LAS TARJETAS */
+.tarjeta {
+    background-color: var(--card-bg); /* Fondo gris oscuro */
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    border-color: var(--primary); /* Borde naranja al pasar mouse */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.tarjeta h3 {
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.tarjeta p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Esto empuja el botón hacia abajo */
+}
+
+/* 3. EL BOTÓN DEL MENÚ (Clase .boton) */
+/* Importante: Esto da estilo a los enlaces <a> para que parezcan botones */
+a.boton {
+    display: inline-block;
+    width: 100%;
+    padding: 12px 0;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none; /* Quita el subrayado típico de los links */
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+a.boton:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 0 15px rgba(255, 106, 0, 0.4); /* Resplandor naranja */
+}

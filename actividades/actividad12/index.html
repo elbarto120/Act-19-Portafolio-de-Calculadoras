@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>División de Polinomios</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+</head>
+<body>
+    <a href="../../index.html" class="boton-regresar">⬅ Volver al Menú</a>
+    <div class="container">
+    <h1>División de Polinomios</h1>
+    <p class="subtitle">Soporta división entre cualquier polinomio con coeficientes reales y complejas</p>
+    <p><h5>Jesus Fernando Castro Hernandez || 1°A || Mtro: Jorge Javier Pedrozo Romero || Algebra || Instituto Tecnologico De Software</h5></p>
+
+    <div class="input-section">
+        <label for="polinomio">Dividendo (Polinomio a dividir):</label>
+        <input type="text" id="polinomio" placeholder="Ejemplo: x^2 + 4">
+        <p class="help-text">Ingresa el polinomio dividendo con formato algebraico</p>
+        <div class="example">
+            <strong>Ejemplos:</strong><br>
+            • x^2 + 4<br>
+            • 5x^3 + 3x^2 + 2x + 1<br>
+            • x^3 - 6x^2 + 11x - 6<br>
+            • 2x^2 + (3+2i)x + 1<br>
+            • x^4 - 1
+        </div>
+    </div>
+
+    <div class="input-section">
+        <label for="raiz">Divisor (Polinomio divisor):</label>
+        <input type="text" id="raiz" placeholder="Ejemplo: x + 1">
+        <p class="help-text">Ingresa el polinomio divisor (puede ser de cualquier grado)</p>
+        <div class="example">
+            <strong>Ejemplos:</strong><br>
+            • x + 1<br>
+            • x^2 + 1<br>
+            • 2x - 3<br>
+            • x^2 - 4
+        </div>
+    </div>
+
+    <button onclick="calcularDivision()">Calcular División</button>
+
+    <div id="resultado" class="result-section"></div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

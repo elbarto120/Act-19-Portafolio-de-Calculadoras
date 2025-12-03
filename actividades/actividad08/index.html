@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Operaciones Algebraicas</title>
+        <link rel="stylesheet" href="../../css/style.css">
+
+</head>
+<body>
+    <a href="../../index.html" class="boton-regresar">⬅ Volver al Menú</a>
+        <!-- Aquí irá el contenido -->
+<!-- Estructura básica del documento HTML -->
+<div class="container">
+        <h1>Calculadora de Variables</h1>
+        <h3>Jesus Fernando Castro Hernandez || 1°A || Fundamentos de Algebra || Mtro: Jorge Javier Pedrozo Romero</h3>
+
+        <div class="input-section">
+            <div class="field-group">
+                <label for="variables">Variables:</label>
+                <textarea id="variables" placeholder="Ejemplo: feature_cost, w1 = 1, w2 = 2, w3 = 3"></textarea>
+            </div>
+
+            <div class="field-group">
+                <label for="equations">Ecuaciones:</label>
+                <textarea id="equations" placeholder="Ejemplo: feature_cost = w1 * w2 + w3"></textarea>
+            </div>
+
+            <button id="calculate-btn" class="calculate-button">Calcular</button>
+        </div>
+
+        <div class="result-section">
+            <div class="info-card">
+                <h3>Resultado:</h3>
+                <div id="result" class="result-content">
+                    Ingresa las variables y ecuaciones para ver el resultado
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
